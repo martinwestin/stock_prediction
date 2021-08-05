@@ -17,8 +17,8 @@ def new_model(train_x: np.ndarray, train_y: np.ndarray):
     model.add(tf.keras.layers.Dropout(0.2))
     model.add(tf.keras.layers.Dense(1))
 
-    model.compile(optimizer="adam", loss="mean_squared_error", metrics=["accuracy"])
-    model.fit(train_x, train_y, epochs=25)
+    model.compile(optimizer="adam", loss="mean_squared_logarithmic_error")
+    model.fit(train_x, train_y, epochs=50)
 
     model.save(os.path.join(sys.path[0], "stock_model.h5"))
 
