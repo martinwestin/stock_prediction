@@ -78,6 +78,7 @@ class App(tk.Tk):
 
     def insert_values(self, values, prediction):
         self.prices.delete(0, tk.END)
+
         for price in reversed(values):
             insert_data = f"{str(price[1]).split(' ')[0]}: {price[0]}"
             self.prices.insert(list(reversed(values)).index(price), insert_data)

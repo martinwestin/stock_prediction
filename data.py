@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 STOCKS = [
     "MSFT", "XOM", "GOOG", "JNJ", "AMZN",
     "PNC", "TSLA", "NVDA", "PFE", "J",
-    "GME", "GILD", "MMM", "ACN", "APD",
+    "MSCI", "GILD", "MMM", "ACN", "APD",
     "AAPL", "DIS", "CF", "RE", "IBM",
     "ABC", "CE", "DE", "F", "JCI"
 ]

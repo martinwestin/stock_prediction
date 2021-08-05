@@ -9,7 +9,7 @@ import data
 def new_model(train_x: np.ndarray, train_y: np.ndarray):
     model = tf.keras.models.Sequential()
 
-    model.add(tf.keras.layers.LSTM(50, return_sequences=True, input_shape=(x.shape[1], 1)))
+    model.add(tf.keras.layers.LSTM(50, return_sequences=True, input_shape=(train_x.shape[1], 1)))
     model.add(tf.keras.layers.Dropout(0.2))
     model.add(tf.keras.layers.LSTM(50, return_sequences=True))
     model.add(tf.keras.layers.Dropout(0.2))
@@ -27,6 +27,7 @@ def predict_new_stock(ticker):
     if "stock_model.h5" in os.listdir(sys.path[0]):
         model = tf.keras.models.load_model("stock_model.h5")
         price_data = data.yf.download(ticker, interval="1mo")
+
         test_data = data.SCALER.fit_transform(price_data["Close"].values.reshape(-1, 1))
         test_data = np.array(list(filter(lambda x: str(x[0]) != "nan", test_data)))
         test_data = test_data[len(test_data) - 12:]
